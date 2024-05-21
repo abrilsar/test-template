@@ -53,7 +53,6 @@ services:
         TURBO_TEAM: $TURBO_TEAM
         TURBO_TOKEN: $TURBO_TOKEN
     image: api
-    env_file: ./apps/api/src/variables.env
     restart: unless-stopped
     ports:
       - '3000'
@@ -83,7 +82,6 @@ services:
         TURBO_TEAM: $TURBO_TEAM
         TURBO_TOKEN: $TURBO_TOKEN
     image: client
-    env_file: ./apps/client/.env.local
     depends_on:
       - 'api'
     restart: unless-stopped
@@ -115,7 +113,6 @@ services:
         TURBO_TEAM: $TURBO_TEAM
         TURBO_TOKEN: $TURBO_TOKEN
     image: admin
-    env_file: ./apps/admin/.env.local
     depends_on:
       - 'api'
     restart: unless-stopped
